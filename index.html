@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威佑幼兒園 | 快樂成長的奇幻樂園</title>
+    <style>
+        :root {
+            --bg-color: #FDFFFC;
+            --main-text: #555;
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --warning: #FFE66D;
+            --accent: #FF9F1C;
+            --font-main: 'Mali', cursive, "Microsoft JhengHei", sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap');
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* 背景裝飾 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(#FF6B6B22 2px, transparent 2px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(180deg, #AEDFF7 0%, #fff 100%);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            text-shadow: 4px 4px 0 white, 7px 7px 0px var(--secondary);
+            margin: 0;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-bottom: 6px dashed var(--secondary);
+        }
+
+        nav a {
+            margin: 5px 12px;
+            text-decoration: none;
+            color: var(--main-text);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover { background: var(--warning); transform: scale(1.1); }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 20px; }
+
+        section {
+            padding: 80px 40px;
+            margin-bottom: 60px;
+            background: white;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 15px 15px 0px var(--secondary);
+            border: 4px solid #f0f0f0;
+        }
+
+        h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 40px; position: relative; }
+        h2::after { content: '☁️'; position: absolute; font-size: 1.5rem; margin-left: 10px; }
+
+        /* 教學特色卡片 */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-card {
+            background: #fdfdfd;
+            padding: 30px;
+            border-radius: 40px;
+            border: 2px solid #eee;
+            transition: 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-10px); border-color: var(--warning); }
+        .feature-card h3 { color: var(--accent); margin-top: 15px; }
+
+        /* IG 容器 */
+        .ig-container { margin: 30px auto; max-width: 900px; border-radius: 30px; overflow: hidden; border: 10px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* 作息表樣式 */
+        .schedule-table { width: 100%; max-width: 600px; margin: 0 auto; border-collapse: collapse; }
+        .schedule-table td { padding: 15px; border-bottom: 2px dashed #eee; font-size: 1.1rem; }
+        .time { color: var(--secondary); font-weight: bold; width: 40%; }
+
+        .faq-item { text-align: left; margin: 15px auto; max-width: 750px; border: 2px solid #eee; border-radius: 25px; overflow: hidden; }
+        .faq-question { padding: 18px 25px; cursor: pointer; font-weight: bold; background: #fffdf0; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; line-height: 1.8; }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 6px 0px #C0392B;
+            transition: 0.2s;
+        }
+        .cta-button:hover { filter: brightness(1.1); }
+        .cta-button:active { transform: translateY(4px); box-shadow: 0 2px 0px #C0392B; }
+
+        footer { background: var(--primary); color: white; padding: 80px 20px; text-align: center; }
+        
+        .trail { position: absolute; width: 12px; height: 12px; border-radius: 50%; pointer-events: none; animation: trailFade 0.6s ease-out forwards; z-index: 9999; }
+        @keyframes trailFade { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(2); } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>威佑幼兒園</h1>
+    <p>🌈 Will Preschool：讓孩子在愛與探索中，綻放獨一無二的光芒 🎈</p>
+</header>
+
+<nav>
+    <a href="#about">👶 關於威佑</a>
+    <a href="#curriculum">🚀 教學特色</a>
+    <a href="#schedule">🕒 一日作息</a>
+    <a href="#campus">📸 生活剪影</a>
+    <a href="#faq">❓ 常見問題</a>
+    <a href="#contact">📍 聯絡我們</a>
+</nav>
+
+<div class="container">
+    
+    <section id="about">
+        <h2>關於我們</h2>
+        <p style="font-size: 1.25rem; line-height: 2; max-width: 850px; margin: 0 auto;">
+            位於湖口安宅街的<strong>威佑幼兒園</strong>，是一個專為孩子打造的「成長樂園」。<br>
+            我們相信每個孩子都是天生的探索家。透過五感教育與溫馨的環境，我們陪伴孩子在遊戲中學習社會規範，在探索中建立解決問題的能力，讓每一步成長都充滿自信與笑聲。
+        </p>
+    </section>
+
+    <section id="curriculum" style="background: #F0FAF9;">
+        <h2>教學特色</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span style="font-size: 4rem;">🔬</span>
+                <h3>主題探索教學</h3>
+                <p>打破死背，透過實際觀察與操作，引發孩子對世界的好奇心，培養邏輯思考能力。</p>
+            </div>
+            <div class="feature-card">
+                <span style="font-size: 4rem;">🎨</span>
+                <h3>美學生活教育</h3>
+                <p>結合繪畫、律動與音樂，鼓勵孩子大膽表達情感，豐富內心的感受力與創造力。</p>
+            </div>
+            <div class="feature-card">
+                <span style="font-size: 4rem;">🌱</span>
+                <h3>品格素養養成</h3>
+                <p>在群體互動中學習分享、尊重與情緒管理，從小建立正向且健全的人格基礎。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule">
+        <h2>一日作息</h2>
+        <p style="margin-bottom: 30px; color: #888;">規律的生活節奏，讓孩子建立安全感與生活常規</p>
+        <table class="schedule-table">
+            <tr><td class="time">07:30 - 09:00</td><td>入園時間 / 早安晨光</td></tr>
+            <tr><td class="time">09:00 - 09:30</td><td>營養早餐時間</td></tr>
+            <tr><td class="time">09:30 - 11:30</td><td>主題課程 / 戶外大肌肉活動</td></tr>
+            <tr><td class="time">11:30 - 12:30</td><td>美味午餐時光</td></tr>
+            <tr><td class="time">12:30 - 14:30</td><td>午間靜謐休憩</td></tr>
+            <tr><td class="time">14:30 - 15:30</td><td>點心時間 / 自由探索</td></tr>
+            <tr><td class="time">16:00 - 18:00</td><td>快樂賦歸 / 溫馨等候</td></tr>
+        </table>
+    </section>
+
+    <section id="campus" style="background: #FFF5F5;">
+        <h2>生活剪影</h2>
+        <p style="font-size: 1.1rem; color: #888;">關注我們的 Instagram，捕捉孩子們最純真的瞬間！</p>
+        <div class="ig-container">
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-fb259bb7-11e0-445e-8b85-21e0ba5ce6f3" data-elfsight-app-lazy></div>
+        </div>
+        <a href="https://www.instagram.com/willschool2021/" target="_blank" class="cta-button" style="background: #4ECDC4; box-shadow: 0 6px 0 #399690;">✨ 進入 IG 探索更多故事</a>
+    </section>
+
+    <section id="faq">
+        <h2>常見問題</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">如何申請入園參觀？ <span>+</span></div>
+            <div class="faq-answer">
+                <p>為了確保園內師生安全與維護教學品質，請事先透過電話 (03-6960685) 或 Facebook 私訊預約，我們會安排專門時段帶您與孩子導覽環境。</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">餐點內容是如何安排的？ <span>+</span></div>
+            <div class="faq-answer">
+                <p>我們提供均衡營養的早餐、午餐與下午點心。菜單皆經過營養審核，減少加工品，選用當季新鮮食材，並嚴格管控衛生安全。</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">幼兒園有交通車接送嗎？ <span>+</span></div>
+            <div class="faq-answer">
+                <p>關於交通車接送範圍與詳細時間，歡迎在預約參觀時向行政老師洽詢，我們將依據當學期路線提供建議。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>聯絡我們</h2>
+        <div style="font-size: 1.2rem; line-height: 2.5; margin-bottom: 30px;">
+            <p>📍 <strong>校址：</strong>新竹縣湖口鄉安宅一街15號</p>
+            <p>📞 <strong>電話：</strong>03-6960685</p>
+            <p>🕙 <strong>服務時間：</strong>週一至週五 07:30 - 18:00</p>
+        </div>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://www.facebook.com/p/%E6%B9%96%E5%8F%A3%E5%A8%81%E4%BD%91%E5%B9%BC%E5%85%92%E5%9C%92-100069370298013/" target="_blank" class="cta-button">💙 FB 粉絲團</a>
+            <a href="https://maps.app.goo.gl/3X5tZ2x9aC6N7q2x8" target="_blank" class="cta-button" style="background: #FF9F1C; box-shadow: 0 6px 0 #CC7A00;">📍 Google 地圖導航</a>
+            <a href="https://www.104.com.tw/company/1a2x6bmkmz" target="_blank" class="cta-button" style="background: #A9DFBF; box-shadow: 0 6px 0 #27AE60;">👩‍🏫 職缺資訊</a>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>威佑幼兒園 Will Preschool | 快樂學習．愛心守護</p>
+    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 10px;">© 2026 威佑幼兒園. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // 滑鼠粉彩軌跡
+    const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#FF9F1C'];
+    document.addEventListener('mousemove', (e) => {
+        const trail = document.createElement('div');
+        trail.className = 'trail';
+        trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        trail.style.left = e.pageX + 'px';
+        trail.style.top = e.pageY + 'px';
+        document.body.appendChild(trail);
+        setTimeout(() => trail.remove(), 600);
+    });
+
+    // FAQ 摺疊
+    function toggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('span');
+        if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            icon.innerText = "+";
+        } else {
+            answer.style.maxHeight = answer.scrollHeight + 100 + "px";
+            icon.innerText = "-";
+        }
+    }
+</script>
+
+</body>
+</html>
